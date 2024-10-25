@@ -25,6 +25,14 @@ session_start();
       <li><a href="grad.fees.php">GRAD.FEES</a></li>
 
       <li><a href="dates.php">DATES</a></li>
+
+      <?php 
+      if(isset($_SESSION['user_id']))
+        echo '<li><a href="logout.php">logout</a></li>
+';
+
+      ?>
+
     </ul>
   </div>
 </div>

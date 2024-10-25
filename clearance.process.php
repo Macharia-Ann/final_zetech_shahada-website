@@ -1,5 +1,8 @@
 <?php
 include_once 'header.php';
+
+
+print_r($_SESSION);
 ?>
 
 <div class="clearance-process1">

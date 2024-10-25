@@ -1,5 +1,13 @@
 <?php
 include 'header.php';
+
+// if(isset($_SESSION['user_id']))
+//   {
+
+// echo 'already logged in';
+// return;
+
+//   }
 ?>
 
   <div class="clearance">
@@ -20,56 +28,53 @@ include 'header.php';
     </div>
     
   
-    <div class="form">
-      <form action="" method="post">
+
       <?php
 //check if form was submitted
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+  //print_r($_POST);
 
   //collect user's data
 $admissionnumber=$_POST["admissionnumber"];
 $password=$_POST["password"];
 
+//echo md5('BBAM-05-0149/2020').'=='.md5($password); return;
+
 //check if data exists in the db
 
-$sql="SELECT* FROM login WHERE admissionnumber=?";
+$sql="SELECT * FROM students WHERE admnum='".$admissionnumber."' and passwd = '".md5($password)."' ";
 
-//statements to prevent sql injection
-if($stmt=$conn->prepare($sql)){ 
+$res = mysqli_query($conn, $sql);
+$row = mysqli_fetch_object($res);
 
-  //bind parameters
-  $stmt->bind_param('s', $admissionnumber);
+//print_r($row); return;
 
-  //execute
-  $stmt->execute();
+if(!empty($row))
+  {
+      $_SESSION["user_id"]=$row->id;
+      $_SESSION["regno"]=$row->admnum;
 
-  //store data
-  $result=$stmt->get_result();
+      header("Location: clearance.process.php"); 
+      exit(); 
 
-  //check if an account was found
-  if($result->num_rows >0){
-
-    //fetch user
-    $user=$result->fetch_assoc();
-$hashedpassword=password_hash($password, PASSWORD_DEFAULT);
-    //verify password
-    if(password_verify($hashedpassword, $user["password"])){
-  //set session variables
-  $_SESSION["user_id"]=$user["id"];
-
-}
+    }
+    else{
+      echo "<p> wrong user details</p>";
+     }
     //redirect or show success message
- header("Location: clearance.process.php"); 
- exit();     
+    
+    
   
   }
-  else{
-    echo "<p> wrong user details</p>";
-   }
-}
-}
+
+
 
     ?>
+
+
+<div class="form">
+<form action="" method="post">
         <input type="text" name="admissionnumber" placeholder="Admission number" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
 <button class="login" type="submit" name="submit">Login</button><button class="cancel"><a href="home.php">Cancel</a></button>

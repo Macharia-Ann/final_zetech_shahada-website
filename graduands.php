@@ -49,7 +49,7 @@ include 'header.php';
    while($row = mysqli_fetch_object($query))
       {
 
-   echo '<tr><td>'.$row->id. '. <a href="graduand.details.php">'.$row->fullname.'</td><td></a>'.$row->admnum.'</td><td>'.$row->program.'</td><td>'.$row->year.'</td></tr>';
+   echo '<tr><td>'.$row->id. '. <a href="graduand.details.php?sid='.$row->id.'">'.$row->fullname.'</td><td></a>'.$row->admnum.'</td><td>'.$row->program.'</td><td>'.$row->year.'</td></tr>';
       }
 
  echo '</table>';
