@@ -1,9 +1,55 @@
-# shahada-zetech-website-recreated
-A platform developed for Zetech University students to access graduation-related information, including important dates, statuses, and other graduation-related details.
-# Title # shahada-zetech-website-recreated
+# Shahada – Graduation Information Platform for Zetech University
 
-# 2. Description - his project is a platform for **Zetech University** students to access important graduation-related information, such as important dates, status updates, and other essential details to guide them through their graduation journey.
-# 2. Description - This project is a platform for **Zetech University** students to access important graduation-related information, such as important dates, status updates, and other essential details to guide them through their graduation journey.
+**Shahada** is a custom web platform designed to help Zetech University students access essential information related to graduation. It provides centralized access to updates, procedures, and personal clearance progress.
 
- # Features - View current graduation status.
-- Stay updated on important dates and events related to graduation.
+## Project Description
+
+This platform streamlines the graduation process by allowing students to:
+
+- View graduation announcements and deadlines
+- Track their graduation clearance status
+- Access graduation requirements
+- Contact the university for graduation-related inquiries
+
+It was built as a practical PHP & MySQL project, focusing on solving a real-world academic need.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- PHP
+- MySQL
+- JavaScript (basic)
+- XAMPP (for local development)
+
+## Features
+
+- Student login system
+- Admin panel for updating clearance statuses
+- Display of personalized graduation progress
+- News/updates section for graduation-related notices
+
+## Database
+
+- The `shahada-zetech.sql` file contains the database structure and test data.
+- Tables include: `students`, `clearance`, `admins`, `messages`, etc.
+
+## Screenshots
+
+*(Optional: Add dashboard screenshots here to showcase the system.)*
+
+## Future Enhancements
+
+- PDF clearance report generation
+- Email notifications
+- Role-based permissions
+- Better UI and mobile responsiveness
+
+## Note
+
+This is a student project for learning purposes. It is not affiliated with Zetech University.
+
+## Contact
+
+Reach out for suggestions, collaboration, or feedback:
+- Email: sherryann478@gmail.com
